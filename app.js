@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express()
+const connectDB = require('./db/connect')
 
 const PORT = process.env.PORT || 5001 ;
 
@@ -12,6 +13,12 @@ app.get("/", (req,res) => {
 // middleware or to set router
 app.use('/api/products', product_routes)
 
-app.listen(PORT, () => {
-    console.log(`Server is connecting on port: ${PORT}`)
+app.listen(PORT, async () => {
+    try {
+        await connectDB();
+         console.log(`Server is connecting on port: ${PORT}`)
+    } catch (error) {
+        console.log(`database not connected`)
+    }
+   
 })
