@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express()
 const connectDB = require('./db/connect')
@@ -15,7 +16,7 @@ app.use('/api/products', product_routes)
 
 app.listen(PORT, async () => {
     try {
-        await connectDB();
+        await connectDB(process.env.MONGODB_URI);
          console.log(`Server is connecting on port: ${PORT}`)
     } catch (error) {
         console.log(`database not connected`)
