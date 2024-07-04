@@ -3,7 +3,7 @@ const Product = require('../models/product')
 const getAllProducts = async (req,res) => {
 
     // -----Naming filter functionality-----
-    const { company,name, featured, sort } = req.query;
+    const { company,name, featured, sort, select } = req.query;
     const queryObject = {};
 
     if(company){
@@ -22,6 +22,13 @@ const getAllProducts = async (req,res) => {
         let sortFix = sort.replace(","," ")
         apiData = apiData.sort(sortFix) ;
     }
+
+    // select = name,company;
+    if(select){
+        // let selectFix = select.replace(","," ")
+        let selectFix = select.split(",").join(" ");
+        apiData = apiData.select(selectFix) ;
+    }
      console.log(queryObject)
 
     const myData = await apiData.sort(sort);
@@ -32,7 +39,7 @@ const getAllProducts = async (req,res) => {
 const getAllProductsTesting = async(req,res) => {
      const myData = await Product
                                 .find(req.query)
-                                .sort("-name")
+                                .select("name company")
                                 ;
      res.status(200).json({ myData });
 }
