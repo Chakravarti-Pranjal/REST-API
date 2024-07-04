@@ -12,10 +12,10 @@
         "company": "apple"
     },
     {
-        "name": "iphone",
+        "name": "samsung galaxy",
         "price": 154,
         "feature": true,
-        "company": "apple"
+        "company": "samsung"
     },
     {
         "name": "watch",
@@ -34,9 +34,9 @@
         "company": "samsung"
     },
     {
-        "name": "iphone",
+        "name": "mi1",
         "price": 154,
         "feature": true,
-        "company": "apple"
+        "company": "mi"
     }
 ]
