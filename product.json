@@ -2,19 +2,19 @@
     {
         "name": "iphone",
         "price": 154,
-        "feature": true,
+        "featured": true,
         "company": "apple"
     },
     {
-        "name": "iphone10",
+        "name": "iphone15",
         "price": 1154,
-        "feature": true,
+        "featured": true,
         "company": "apple"
     },
     {
         "name": "samsung galaxy",
         "price": 154,
-        "feature": true,
+        "featured": true,
         "company": "samsung"
     },
     {
@@ -30,13 +30,14 @@
     {
         "name": "s20",
         "price": 404,
-        "feature": true,
+        "featured": true,
         "company": "samsung"
     },
     {
         "name": "mi1",
         "price": 154,
-        "feature": true,
+        "featured": true,
         "company": "mi"
     }
+   
 ]
