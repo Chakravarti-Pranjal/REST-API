@@ -29,11 +29,20 @@ const getAllProducts = async (req,res) => {
         let selectFix = select.split(",").join(" ");
         apiData = apiData.select(selectFix) ;
     }
+
+// pagination
+    let page = Number(req.query.page) || 1 ;
+    let limit = Number(req.query.limit) || 3;
+
+    let skip = (page - 1 ) * limit;
+
+    apiData = apiData.skip(skip).limit(limit);
+
      console.log(queryObject)
 
     const myData = await apiData.sort(sort);
     // console.log(queryObject);
-    res.status(200).json({ myData });
+    res.status(200).json({ myData, nbHits: myData.length });
 }
 
 const getAllProductsTesting = async(req,res) => {
